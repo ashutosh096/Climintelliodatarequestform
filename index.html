@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>ClimIntellio | Sample Dataset Request Form</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal-dark: #023838;
+    --teal-primary: #066060;
+    --teal-hover: #087a7a;
+    --teal-light: #eef6f6;
+    --lime: #c6f018;
+    --lime-hover: #b4dc12;
+    --bg-page: #edf3f3;
+    --card-bg: #ffffff;
+    --text-main: #132727;
+    --text-muted: #5e7272;
+    --border: #d2dede;
+    --error: #d92d20;
+    --success: #097949;
+    --radius-lg: 18px;
+    --radius-md: 10px;
+    --shadow-card: 0 10px 36px rgba(4, 75, 75, 0.08);
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: var(--text-main);
+    background-color: var(--bg-page);
+    line-height: 1.5;
+    padding: 24px 16px 80px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Main Page Container */
+  .page-container {
+    max-width: 960px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* TOP HERO BANNER (Image 3 Style with Exact Logo File & Consolidated Info) */
+  .hero-banner-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 14px 44px rgba(0, 0, 0, 0.18);
+    background: #033636;
+    margin-bottom: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  .hero-banner-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('banner.jpg');
+    background-size: cover;
+    background-position: center right;
+    opacity: 0.95;
+  }
+  .hero-banner-overlay {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(90deg, rgba(2, 54, 54, 0.97) 0%, rgba(2, 54, 54, 0.92) 50%, rgba(2, 54, 54, 0.55) 80%, rgba(0,0,0,0.18) 100%);
+    padding: 32px 38px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px;
+  }
+  .hero-banner-top {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+
+  /* Custom Logo Box using user's uploaded logo file */
+  .hero-logo-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.42);
+    padding: 10px 14px;
+    border-radius: 14px;
+    border: 1.5px solid rgba(198, 240, 24, 0.35);
+    backdrop-filter: blur(8px);
+    flex-shrink: 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  }
+  .hero-brand-logo-img {
+    width: 84px;
+    height: 84px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .hero-title-area h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0 0 6px;
+    letter-spacing: -0.5px;
+    line-height: 1.18;
+  }
+  .hero-title-area h1 span.highlight {
+    color: var(--lime);
+  }
+  .hero-subtitle {
+    font-size: 14.5px;
+    color: rgba(255, 255, 255, 0.92);
+    margin: 0 0 10px;
+    font-weight: 500;
+    line-height: 1.55;
+  }
+  .hero-instructions {
+    font-size: 13.5px;
+    color: #bbf7d0;
+    margin: 0 0 16px;
+    font-weight: 600;
+  }
+
+  .hero-features-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .hero-pill-feature {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(8px);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #ffffff;
+  }
+  .hero-pill-feature svg {
+    color: var(--lime);
+  }
+
+  .hero-banner-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 18px;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.88);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .hero-confidential-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .hero-contact-links {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+  }
+  .hero-contact-links a {
+    color: #bbf7d0;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .hero-contact-links a:hover {
+    text-decoration: underline;
+  }
+
+  /* Main Form Card */
+  .form-card {
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    padding: 34px 38px 44px;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border);
+  }
+
+  /* Section Headers */
+  .form-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eef4f4;
+    padding-bottom: 10px;
+    margin: 28px 0 18px;
+  }
+  .form-section-header:first-of-type {
+    margin-top: 0;
+  }
+  .form-section-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--teal-dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .form-section-header span {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* Responsive 2-column Grid */
+  .grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 18px;
+  }
+  .form-field {
+    margin-bottom: 14px;
+  }
+  .full-width {
+    grid-column: 1 / -1;
+  }
+
+  label {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #1a3333;
+  }
+  label .req { color: var(--error); }
+  label .opt { color: var(--text-muted); font-weight: 400; font-size: 12px; }
+
+  /* Touch-friendly inputs (16px font prevents auto-zoom on iOS Safari) */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
+    background: #f8fafb;
+    font-size: 16px;
+    font-family: inherit;
+    color: var(--text-main);
+    transition: all 0.2s ease;
+    min-height: 48px;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--teal-primary);
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(6, 96, 96, 0.12);
+  }
+  select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234a6060' stroke-width='2.2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px;
+    padding-right: 38px;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  textarea {
+    resize: vertical;
+    min-height: 95px;
+  }
+
+  /* Error highlighting */
+  .field-error-highlight {
+    border-color: var(--error) !important;
+    background: #fffafa !important;
+    box-shadow: 0 0 0 3px rgba(217, 45, 32, 0.15) !important;
+    animation: shakeAnim 0.3s ease-in-out;
+  }
+  @keyframes shakeAnim {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+  }
+
+  /* Multi-Select Custom Dropdown */
+  .custom-dropdown {
+    position: relative;
+  }
+  .dropdown-trigger-btn {
+    width: 100%;
+    text-align: left;
+    padding: 13px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
+    background: #f8fafb;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #274242;
+    cursor: pointer;
+    font-family: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 48px;
+    transition: all 0.2s ease;
+  }
+  .dropdown-trigger-btn:hover {
+    border-color: #a9bebe;
+    background: #ffffff;
+  }
+  .custom-dropdown.open .dropdown-trigger-btn {
+    border-color: var(--teal-primary);
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(6, 96, 96, 0.12);
+  }
+  .dropdown-arrow {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease;
+    color: #637777;
+    flex-shrink: 0;
+  }
+  .custom-dropdown.open .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-panel {
+    display: none;
+    position: absolute;
+    z-index: 40;
+    left: 0;
+    right: 0;
+    top: calc(100% + 6px);
+    background: #ffffff;
+    border: 1.5px solid #d2dede;
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14);
+    padding: 10px 12px;
+    animation: fadeIn 0.15s ease-out;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .custom-dropdown.open .dropdown-panel {
+    display: block;
+  }
+
+  .dropdown-actions-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 6px 8px;
+    font-size: 12px;
+    border-bottom: 1px solid #edf2f2;
+    margin-bottom: 6px;
+  }
+  .btn-text-action {
+    background: none;
+    border: none;
+    color: var(--teal-primary);
+    font-weight: 700;
+    cursor: pointer;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 12px;
+  }
+  .btn-text-action:hover {
+    background: #eef7f7;
+  }
+
+  .dropdown-items-scroll {
+    max-height: 280px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-right: 4px;
+  }
+
+  .dropdown-item-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    margin: 0 0 2px 0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #1e3636;
+    transition: background 0.15s;
+    user-select: none;
+    min-height: 42px;
+  }
+  .dropdown-item-label:hover {
+    background: #f0f7f7;
+  }
+  .dropdown-item-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--teal-primary);
+    cursor: pointer;
+    margin: 0;
+    flex-shrink: 0;
+  }
+  .hazard-icon-box {
+    font-size: 19px;
+    width: 26px;
+    height: 26px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* Metric Category Selector Cards */
+  .metric-type-selector-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .metric-category-card {
+    border: 2px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    cursor: pointer;
+    background: #fbfdfd;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 64px;
+  }
+  .metric-category-card:hover {
+    border-color: #a8c4c4;
+    background: #ffffff;
+  }
+  .metric-category-card.selected {
+    border-color: var(--teal-primary);
+    background: var(--teal-light);
+    box-shadow: 0 2px 10px rgba(6, 96, 96, 0.1);
+  }
+  .category-checkbox {
+    width: 22px;
+    height: 22px;
+    accent-color: var(--teal-primary);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .category-info h4 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--teal-dark);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .category-info p {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .selected-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+  }
+  .selected-tag {
+    background: #e0f2f1;
+    color: #004d40;
+    border: 1px solid #b2dfdb;
+    border-radius: 16px;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .tag-remove-btn {
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 15px;
+    color: #004d40;
+    line-height: 1;
+    padding: 0 2px;
+  }
+
+  .metric-dropdown-container {
+    display: none;
+    margin-top: 10px;
+  }
+  .metric-dropdown-container.visible {
+    display: block;
+  }
+  .metric-group-header {
+    background: #eef6f6;
+    padding: 7px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--teal-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin: 8px 0 4px;
+  }
+
+  .other-input-reveal {
+    display: none;
+    margin-top: 10px;
+  }
+  .other-input-reveal.visible {
+    display: block;
+  }
+
+  /* Submit Button Wrap */
+  .submit-btn-wrap {
+    text-align: center;
+    margin-top: 36px;
+  }
+  .submit-btn {
+    background: var(--teal-dark);
+    color: #ffffff;
+    border: 0;
+    padding: 16px 48px;
+    border-radius: 32px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 6px 20px rgba(2, 56, 56, 0.25);
+    transition: all 0.25s ease;
+    min-height: 52px;
+    width: auto;
+  }
+  .submit-btn:hover {
+    background: var(--teal-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 26px rgba(2, 56, 56, 0.35);
+  }
+  .submit-btn:disabled {
+    opacity: 0.65;
+    cursor: wait;
+    transform: none;
+  }
+
+  .privacy-footer-note {
+    text-align: center;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  /* POPUP MODAL (For validation warnings & Thank You Note) */
+  .modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(4, 30, 30, 0.68);
+    backdrop-filter: blur(5px);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    animation: fadeIn 0.2s ease-out;
+  }
+  .modal-backdrop.open {
+    display: flex;
+  }
+  .modal-card {
+    background: #ffffff;
+    border-radius: 20px;
+    max-width: 520px;
+    width: 100%;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.06);
+    animation: popUp 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  @keyframes popUp {
+    from { opacity: 0; transform: scale(0.92) translateY(10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  .modal-icon-badge {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  .modal-icon-badge.warning {
+    background: #fef3f2;
+    color: var(--error);
+    border: 3px solid #fee4e2;
+  }
+  .modal-icon-badge.success {
+    background: #edfcf2;
+    color: var(--success);
+    border: 3px solid #d3f8df;
+  }
+  .modal-title {
+    font-size: 21px;
+    font-weight: 800;
+    margin: 0 0 10px;
+    color: var(--teal-dark);
+  }
+  .modal-message {
+    font-size: 14.5px;
+    color: #3b5050;
+    line-height: 1.6;
+    margin: 0 0 20px;
+  }
+  .modal-btn {
+    background: var(--teal-dark);
+    color: #ffffff;
+    border: none;
+    padding: 14px 36px;
+    border-radius: 26px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+    min-height: 48px;
+  }
+  .modal-btn:hover {
+    background: var(--teal-primary);
+  }
+  .modal-summary-box {
+    background: #f4f8f8;
+    border: 1px solid #dce8e8;
+    border-radius: 12px;
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 13px;
+    color: #244242;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  /* ========================================================
+     MOBILE & RESPONSIVE PERFECTION (< 768px and < 480px)
+     ======================================================== */
+  @media (max-width: 768px) {
+    body {
+      padding: 14px 10px 60px;
+    }
+    .hero-banner-overlay {
+      padding: 24px 18px;
+    }
+    .hero-banner-top {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .hero-logo-box {
+      align-self: flex-start;
+      padding: 8px 12px;
+    }
+    .hero-brand-logo-img {
+      width: 72px;
+      height: 72px;
+    }
+    .hero-title-area h1 {
+      font-size: 26px;
+    }
+    .hero-banner-footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .hero-contact-links {
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .form-card {
+      padding: 22px 16px 30px;
+    }
+    .grid-2col,
+    .metric-type-selector-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .form-field {
+      margin-bottom: 12px;
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 16px 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title-area h1 {
+      font-size: 22px;
+    }
+    .hero-subtitle {
+      font-size: 13.5px;
+    }
+    .hero-pill-feature {
+      font-size: 11.5px;
+      padding: 5px 12px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-container">
+
+  <!-- TOP HERO BANNER (Consolidated with User's Uploaded Logo & Complete Information) -->
+  <section class="hero-banner-card">
+    <div class="hero-banner-bg"></div>
+    <div class="hero-banner-overlay">
+      <div class="hero-banner-top">
+        
+        <!-- User's Official Climagro Logo File -->
+        <div class="hero-logo-box" title="Climagro Analytics">
+          <img src="climagro_logo.png" alt="Climagro Analytics Logo" class="hero-brand-logo-img">
+        </div>
+
+        <div class="hero-title-area">
+          <h1>ClimIntellio <span class="highlight">Ready to Use</span></h1>
+          <p class="hero-subtitle">
+            Access harmonized, high-resolution climate hazard data for 500+ districts across 70+ years of climate records. Built for insurance, banking, and ESG analytics.
+          </p>
+          <div class="hero-instructions">
+            Fill out the form below to receive your requested sample dataset.
+          </div>
+          
+          <div class="hero-features-row">
+            <div class="hero-pill-feature">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Harmonized Multi-Source Data</span>
+            </div>
+            <div class="hero-pill-feature">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Analysis-Ready Hazard Indices</span>
+            </div>
+            <div class="hero-pill-feature">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Instant API &amp; Download Access</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-banner-footer">
+        <div class="hero-confidential-note">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span>Strictly confidential &amp; used only to deliver authorized sample data.</span>
+        </div>
+        <div class="hero-contact-links">
+          <a href="mailto:contact@climagroanalytics.com">✉️ contact@climagroanalytics.com</a>
+          <span>|</span>
+          <a href="https://www.climagroanalytics.com/" target="_blank">🌐 www.climagroanalytics.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN REQUEST FORM -->
+  <form class="form-card" id="requestDatasetForm" novalidate>
+
+    <!-- SECTION 1: User Details -->
+    <div class="form-section-header">
+      <h3>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        1. User Details
+      </h3>
+      <span>Contact &amp; institution info</span>
+    </div>
+
+    <div class="grid-2col">
+      <!-- Row 1: Name and Phone -->
+      <div class="form-field" id="field-name">
+        <label>Your name <span class="req">*</span></label>
+        <input type="text" name="name" id="inputName" placeholder="e.g. John Smith" required>
+      </div>
+
+      <div class="form-field" id="field-phone">
+        <label>Phone number <span class="opt">(optional)</span></label>
+        <input type="tel" name="phone" id="inputPhone" placeholder="e.g. +91 98765 43210">
+      </div>
+
+      <!-- Row 2: Email and LinkedIn -->
+      <div class="form-field" id="field-email">
+        <label>Email address <span class="req">*</span></label>
+        <input type="email" name="email" id="inputEmail" placeholder="e.g. name@organization.com" required>
+      </div>
+
+      <div class="form-field" id="field-linkedin">
+        <label>LinkedIn Profile <span class="opt">(optional)</span></label>
+        <input type="text" name="linkedin" id="inputLinkedin" placeholder="e.g. https://www.linkedin.com/in/username">
+      </div>
+
+      <!-- Row 3: Organization & "I am *" SIDE BY SIDE IN ONE ROW -->
+      <div class="form-field" id="field-organization">
+        <label>Organization / Institution <span class="req">*</span></label>
+        <input type="text" name="organization" id="inputOrganization" placeholder="e.g. ICAR, HDFC ERGO, NABARD" required>
+      </div>
+
+      <div class="form-field" id="field-userRole">
+        <label>I am <span class="req">*</span></label>
+        <select name="userRole" id="userRoleSelect" required>
+          <option value="" disabled selected>-- Select your role / institution profile --</option>
+          <option value="Government Agency / Policy Maker">Government Agency / Policy Maker</option>
+          <option value="Bank / Insurance / Financial Institution">Bank / Insurance / Financial Institution</option>
+          <option value="Agribusiness / Seed Company">Agribusiness / Seed Company</option>
+          <option value="Corporate / ESG & Sustainability">Corporate / ESG &amp; Sustainability</option>
+          <option value="Research Institution / Academic">Research Institution / Academic</option>
+          <option value="Watershed / Development Programme (NGO)">Watershed / Development Programme (NGO)</option>
+          <option value="Other">Other</option>
+        </select>
+        <div class="other-input-reveal" id="otherRoleWrap">
+          <input type="text" name="otherRole" id="otherRoleInput" placeholder="Please specify your organization type / role...">
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: Climate Hazards (13 physical hazards with icons) -->
+    <div class="form-section-header">
+      <h3>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d92d20" stroke-width="2.2">
+          <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+          <line x1="12" y1="9" x2="12" y2="13"></line>
+          <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+        2. Climate Hazards <span class="req">*</span>
+      </h3>
+      <span>13 physical hazard types available</span>
+    </div>
+
+    <div class="form-field" id="field-hazards">
+      <label>Select Climate Hazard(s) <span class="req">*</span></label>
+      <div class="custom-dropdown" id="hazardsDropdown">
+        <button type="button" class="dropdown-trigger-btn" id="hazardsBtn">
+          <span id="hazardsBtnText">-- Choose Climate Hazards (13 available) --</span>
+          <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+
+        <div class="dropdown-panel" id="hazardsPanel">
+          <div class="dropdown-actions-row">
+            <span id="hazardSelectedCount">0 of 13 selected</span>
+            <div>
+              <button type="button" class="btn-text-action" id="selectAllHazards">Select All</button>
+              <button type="button" class="btn-text-action" id="clearHazards">Clear</button>
+            </div>
+          </div>
+
+          <div class="dropdown-items-scroll" id="hazardsList">
+            <!-- 13 Hazards populated with icons -->
+          </div>
+        </div>
+      </div>
+      <div class="selected-tags-container" id="hazardTagsContainer"></div>
+    </div>
+
+    <!-- SECTION 3: Climate Metrics (Optional) -->
+    <div class="form-section-header">
+      <h3>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <line x1="18" y1="20" x2="18" y2="10"></line>
+          <line x1="12" y1="20" x2="12" y2="4"></line>
+          <line x1="6" y1="20" x2="6" y2="14"></line>
+        </svg>
+        3. Climate Metrics (if Required)
+      </h3>
+      <span>Optional – Select category to unlock 15 or 30 metrics</span>
+    </div>
+
+    <div class="form-field" id="field-metrics">
+      <label>Select Metric Type(s) <span class="opt">(optional)</span></label>
+
+      <div class="metric-type-selector-grid">
+        <label class="metric-category-card" id="cardRainfall">
+          <input type="checkbox" class="category-checkbox" id="checkRainfall" value="Rainfall">
+          <div class="category-info">
+            <h4>🌧️ Rainfall Metrics</h4>
+            <p>15 specialized monsoon, spell &amp; seasonal metrics</p>
+          </div>
+        </label>
+
+        <label class="metric-category-card" id="cardTemperature">
+          <input type="checkbox" class="category-checkbox" id="checkTemperature" value="Temperature">
+          <div class="category-info">
+            <h4>🌡️ Temperature Metrics</h4>
+            <p>15 heatwave, warming &amp; thermal metrics</p>
+          </div>
+        </label>
+      </div>
+
+      <!-- Dropdown reveals 15 if one selected, or 30 if both selected -->
+      <div class="metric-dropdown-container" id="metricDropdownContainer">
+        <label id="metricDropdownLabel">Choose Specific Metrics <span class="opt">(optional)</span></label>
+        <div class="custom-dropdown" id="metricsDropdown">
+          <button type="button" class="dropdown-trigger-btn" id="metricsBtn">
+            <span id="metricsBtnText">-- Choose Climate Metrics --</span>
+            <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+
+          <div class="dropdown-panel" id="metricsPanel">
+            <div class="dropdown-actions-row">
+              <span id="metricSelectedCount">0 selected</span>
+              <div>
+                <button type="button" class="btn-text-action" id="selectAllMetrics">Select All</button>
+                <button type="button" class="btn-text-action" id="clearMetrics">Clear</button>
+              </div>
+            </div>
+
+            <div class="dropdown-items-scroll" id="metricsList"></div>
+          </div>
+        </div>
+        <div class="selected-tags-container" id="metricTagsContainer"></div>
+      </div>
+    </div>
+
+    <!-- SECTION 4: Geographic Location -->
+    <div class="form-section-header">
+      <h3>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        4. Geographic Location &amp; Scope <span class="req">*</span>
+      </h3>
+      <span>State, district or pincode</span>
+    </div>
+
+    <div class="form-field full-width" id="field-location">
+      <label>Fill your interested geographic location for data <span class="req">*</span></label>
+      <input type="text" name="location" id="inputLocation" placeholder="e.g. State, District or any Pincode (e.g. Maharashtra, Pune - 411001 / Uttar Pradesh, Lucknow - 226001)" required>
+    </div>
+
+    <!-- SECTION 5: "Where did you reach to this form" (Single-Select Dropdown Only) -->
+    <div class="form-section-header">
+      <h3>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 14 14"></polyline>
+        </svg>
+        5. How did you reach this form? <span class="req">*</span>
+      </h3>
+      <span>Referral source (Single select)</span>
+    </div>
+
+    <div class="form-field full-width" id="field-referral">
+      <label>Where did you reach us from? <span class="req">*</span></label>
+      <select name="referralSource" id="referralSourceSelect" required>
+        <option value="" disabled selected>-- Select an option --</option>
+        <option value="Website">🌐 Website</option>
+        <option value="LinkedIn">💼 LinkedIn</option>
+        <option value="Emails">✉️ Emails</option>
+        <option value="Other">📝 Other</option>
+      </select>
+
+      <div class="other-input-reveal" id="otherReferralWrap">
+        <input type="text" name="otherReferral" id="otherReferralInput" placeholder="Please specify where you reached us from (e.g. Conference, Recommendation, Google Search)...">
+      </div>
+    </div>
+
+    <!-- SECTION 6: Description / Project Requirements (KEPT AT LAST AS REQUESTED) -->
+    <div class="form-section-header">
+      <h3>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        6. Additional Information <span class="opt">(optional)</span>
+      </h3>
+      <span>Project scope &amp; requirements</span>
+    </div>
+
+    <div class="form-field full-width" id="field-description">
+      <label>Description / Project Requirements <span class="opt">(optional)</span></label>
+      <textarea name="description" id="inputDescription" placeholder="Tell us about your specific requirements, parameters, or project scope..."></textarea>
+    </div>
+
+    <!-- SUBMIT BUTTON -->
+    <div class="submit-btn-wrap">
+      <button class="submit-btn" type="submit" id="submitBtn">
+        <span>Submit Request</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <div class="privacy-footer-note">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+      </svg>
+      <span>Strictly confidential &amp; used only to deliver authorized sample data.</span>
+    </div>
+  </form>
+
+</div>
+
+<!-- INTERACTIVE POPUP MODAL (For Mandatory Warnings & Personalized Thank You Note) -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal-card">
+    <div class="modal-icon-badge" id="modalIconBadge"></div>
+    <h3 class="modal-title" id="modalTitle"></h3>
+    <div class="modal-message" id="modalMessage"></div>
+    <div class="modal-summary-box" id="modalSummaryBox" style="display:none;"></div>
+    <button type="button" class="modal-btn" id="modalBtn">Got it</button>
+  </div>
+</div>
+
+<script>
+  // ====== GOOGLE APPS SCRIPT WEB APP URL ======
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby_r1jS2CGL-QttmkYFvCX7g8aDvCYahPaCQ1MdOdIFsuOckzxOi7Wh03sIMLplVmpO5w/exec";
+
+  // 13 Climate Hazards with customized icons
+  const HAZARDS_DATA = [
+    { name: "Cyclone", icon: "🌪️" },
+    { name: "Drought", icon: "☀️" },
+    { name: "Earthquake", icon: "🏚️" },
+    { name: "Fire (Forest Fire)", icon: "🔥" },
+    { name: "Flood", icon: "🌊" },
+    { name: "Tsunami", icon: "🌊" },
+    { name: "Hailstorm", icon: "🌨️" },
+    { name: "Landslide", icon: "🪨" },
+    { name: "Avalanche", icon: "❄️" },
+    { name: "Cloudburst", icon: "⛈️" },
+    { name: "Pest Attack", icon: "🦗" },
+    { name: "Frost & Cold Wave", icon: "🧊" },
+    { name: "Heatwave", icon: "🌡️" }
+  ];
+
+  // 15 Rainfall Metrics
+  const RAINFALL_METRICS = [
+    { name: "Trend in monsoon season mean rainfall", icon: "🌧️" },
+    { name: "Monsoon season mean rainfall anomaly", icon: "📊" },
+    { name: "Extreme wet days", icon: "🌊" },
+    { name: "Time-series of seasonal monsoon rainfall", icon: "📈" },
+    { name: "Projected monsoon season rainfall total", icon: "🌧️" },
+    { name: "Projected monsoon onset and withdrawal dates", icon: "🗓️" },
+    { name: "Projected heavy rainfall days", icon: "⛈️" },
+    { name: "Future dry/wet spell frequency", icon: "🔄" },
+    { name: "Annual variations in winter rainfall", icon: "❄️" },
+    { name: "Trend in summer season mean rainfall", icon: "🌦️" },
+    { name: "Summer season mean rainfall anomaly", icon: "📉" },
+    { name: "Annual variations in summer rainfall", icon: "🌦️" },
+    { name: "Time-series of seasonal summer rainfall", icon: "📈" },
+    { name: "Monsoon dry and wet days", icon: "⚖️" },
+    { name: "Summer dry days", icon: "☀️" }
+  ];
+
+  // 15 Temperature Metrics
+  const TEMPERATURE_METRICS = [
+    { name: "Trend in summer season average temperature", icon: "🌡️" },
+    { name: "Summer temperature anomalies", icon: "📈" },
+    { name: "Extreme warm days", icon: "🔥" },
+    { name: "Time-series of summer temperatures", icon: "📊" },
+    { name: "Growing degree days", icon: "🌱" },
+    { name: "Projected summer average temperature", icon: "🌡️" },
+    { name: "Projected extreme heat days", icon: "☀️" },
+    { name: "Projected growing degree days", icon: "🌿" },
+    { name: "Projected hot night frequency", icon: "🌙" },
+    { name: "Trend in minimum temperature during Winter", icon: "🧊" },
+    { name: "Trend in maximum temperature during Winter", icon: "❄️" },
+    { name: "Temperature rolling mean", icon: "📉" },
+    { name: "Heat map", icon: "🗺️" },
+    { name: "District-wise contribution in state's warming", icon: "📍" },
+    { name: "Winter season temperature anomaly", icon: "🌡️" }
+  ];
+
+  // DOM Elements
+  const form = document.getElementById("requestDatasetForm");
+  const userRoleSelect = document.getElementById("userRoleSelect");
+  const otherRoleWrap = document.getElementById("otherRoleWrap");
+  const otherRoleInput = document.getElementById("otherRoleInput");
+
+  const hazardsDropdown = document.getElementById("hazardsDropdown");
+  const hazardsBtn = document.getElementById("hazardsBtn");
+  const hazardsBtnText = document.getElementById("hazardsBtnText");
+  const hazardsList = document.getElementById("hazardsList");
+  const hazardSelectedCount = document.getElementById("hazardSelectedCount");
+  const hazardTagsContainer = document.getElementById("hazardTagsContainer");
+
+  const checkRainfall = document.getElementById("checkRainfall");
+  const checkTemperature = document.getElementById("checkTemperature");
+  const cardRainfall = document.getElementById("cardRainfall");
+  const cardTemperature = document.getElementById("cardTemperature");
+
+  const metricDropdownContainer = document.getElementById("metricDropdownContainer");
+  const metricDropdownLabel = document.getElementById("metricDropdownLabel");
+  const metricsDropdown = document.getElementById("metricsDropdown");
+  const metricsBtn = document.getElementById("metricsBtn");
+  const metricsBtnText = document.getElementById("metricsBtnText");
+  const metricsList = document.getElementById("metricsList");
+  const metricSelectedCount = document.getElementById("metricSelectedCount");
+  const metricTagsContainer = document.getElementById("metricTagsContainer");
+
+  const referralSourceSelect = document.getElementById("referralSourceSelect");
+  const otherReferralWrap = document.getElementById("otherReferralWrap");
+  const otherReferralInput = document.getElementById("otherReferralInput");
+
+  // Modal elements
+  const modalBackdrop = document.getElementById("modalBackdrop");
+  const modalIconBadge = document.getElementById("modalIconBadge");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalMessage = document.getElementById("modalMessage");
+  const modalSummaryBox = document.getElementById("modalSummaryBox");
+  const modalBtn = document.getElementById("modalBtn");
+
+  function showModal({ type, title, message, summaryHtml = null, btnText = "Got it", onClose = null }) {
+    modalIconBadge.className = "modal-icon-badge " + type;
+    if (type === "warning") {
+      modalIconBadge.innerHTML = `<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`;
+    } else {
+      modalIconBadge.innerHTML = `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+    }
+    modalTitle.textContent = title;
+    modalMessage.innerHTML = message;
+    if (summaryHtml) {
+      modalSummaryBox.style.display = "block";
+      modalSummaryBox.innerHTML = summaryHtml;
+    } else {
+      modalSummaryBox.style.display = "none";
+    }
+    modalBtn.textContent = btnText;
+    modalBackdrop.classList.add("open");
+
+    modalBtn.onclick = () => {
+      modalBackdrop.classList.remove("open");
+      if (onClose) onClose();
+    };
+  }
+
+  // Populate 13 Climate Hazards with Icons
+  HAZARDS_DATA.forEach(h => {
+    const lbl = document.createElement("label");
+    lbl.className = "dropdown-item-label";
+    lbl.innerHTML = `
+      <input type="checkbox" name="hazard_item" value="${h.name}">
+      <span class="hazard-icon-box">${h.icon}</span>
+      <span>${h.name}</span>
+    `;
+    hazardsList.appendChild(lbl);
+  });
+
+  // Toggle Dropdowns
+  hazardsBtn.addEventListener("click", () => hazardsDropdown.classList.toggle("open"));
+  metricsBtn.addEventListener("click", () => metricsDropdown.classList.toggle("open"));
+
+  document.addEventListener("click", e => {
+    if (!hazardsDropdown.contains(e.target)) hazardsDropdown.classList.remove("open");
+    if (!metricsDropdown.contains(e.target)) metricsDropdown.classList.remove("open");
+  });
+
+  // Select all & Clear Hazards
+  document.getElementById("selectAllHazards").addEventListener("click", () => {
+    hazardsList.querySelectorAll("input[type=checkbox]").forEach(cb => cb.checked = true);
+    updateHazardsUI();
+  });
+  document.getElementById("clearHazards").addEventListener("click", () => {
+    hazardsList.querySelectorAll("input[type=checkbox]").forEach(cb => cb.checked = false);
+    updateHazardsUI();
+  });
+
+  const getSelectedHazards = () => [...hazardsList.querySelectorAll("input:checked")].map(cb => cb.value);
+
+  function updateHazardsUI() {
+    const sel = getSelectedHazards();
+    hazardSelectedCount.textContent = `${sel.length} of ${HAZARDS_DATA.length} selected`;
+    hazardsBtnText.textContent = sel.length
+      ? `${sel.length} Hazard(s) Selected (${sel.slice(0, 2).join(", ")}${sel.length > 2 ? '...' : ''})`
+      : `-- Choose Climate Hazards (${HAZARDS_DATA.length} available) --`;
+
+    hazardTagsContainer.innerHTML = "";
+    sel.forEach(hName => {
+      const item = HAZARDS_DATA.find(x => x.name === hName);
+      const tag = document.createElement("span");
+      tag.className = "selected-tag";
+      tag.innerHTML = `${item ? item.icon : ''} ${hName} <span class="tag-remove-btn" data-val="${hName}">&times;</span>`;
+      hazardTagsContainer.appendChild(tag);
+    });
+  }
+
+  hazardsList.addEventListener("change", updateHazardsUI);
+
+  hazardTagsContainer.addEventListener("click", e => {
+    if (e.target.classList.contains("tag-remove-btn")) {
+      const val = e.target.getAttribute("data-val");
+      const targetCb = hazardsList.querySelector(`input[value="${val}"]`);
+      if (targetCb) {
+        targetCb.checked = false;
+        updateHazardsUI();
+      }
+    }
+  });
+
+  // "I am *" Dropdown Reveal Other Input
+  userRoleSelect.addEventListener("change", () => {
+    userRoleSelect.classList.remove("field-error-highlight");
+    if (userRoleSelect.value === "Other") {
+      otherRoleWrap.classList.add("visible");
+      otherRoleInput.required = true;
+      otherRoleInput.focus();
+    } else {
+      otherRoleWrap.classList.remove("visible");
+      otherRoleInput.required = false;
+    }
+  });
+
+  // "How did you reach this form" Dropdown Reveal Other Input
+  referralSourceSelect.addEventListener("change", () => {
+    referralSourceSelect.classList.remove("field-error-highlight");
+    if (referralSourceSelect.value === "Other") {
+      otherReferralWrap.classList.add("visible");
+      otherReferralInput.required = true;
+      otherReferralInput.focus();
+    } else {
+      otherReferralWrap.classList.remove("visible");
+      otherReferralInput.required = false;
+    }
+  });
+
+  // ====== METRICS CONDITIONAL LOGIC (15 or 30 Metrics) ======
+  function renderMetricsOptions() {
+    const isRain = checkRainfall.checked;
+    const isTemp = checkTemperature.checked;
+
+    cardRainfall.classList.toggle("selected", isRain);
+    cardTemperature.classList.toggle("selected", isTemp);
+
+    if (!isRain && !isTemp) {
+      metricDropdownContainer.classList.remove("visible");
+      metricsList.innerHTML = "";
+      updateMetricsUI();
+      return;
+    }
+
+    metricDropdownContainer.classList.add("visible");
+    let availableCount = 0;
+    if (isRain && isTemp) availableCount = 30;
+    else if (isRain || isTemp) availableCount = 15;
+
+    metricDropdownLabel.innerHTML = `Choose Specific Metrics (<strong>${availableCount} available</strong>) <span class="opt">(optional)</span>`;
+
+    const prevChecked = new Set([...metricsList.querySelectorAll("input:checked")].map(i => i.value));
+    metricsList.innerHTML = "";
+
+    if (isRain) {
+      const groupHeader = document.createElement("div");
+      groupHeader.className = "metric-group-header";
+      groupHeader.textContent = "🌧️ Rainfall Metrics (15 Available)";
+      metricsList.appendChild(groupHeader);
+
+      RAINFALL_METRICS.forEach(m => {
+        const lbl = document.createElement("label");
+        lbl.className = "dropdown-item-label";
+        const isChecked = prevChecked.has(m.name) ? "checked" : "";
+        lbl.innerHTML = `
+          <input type="checkbox" name="metric_item" value="${m.name}" ${isChecked}>
+          <span class="hazard-icon-box">${m.icon}</span>
+          <span>${m.name}</span>
+        `;
+        metricsList.appendChild(lbl);
+      });
+    }
+
+    if (isTemp) {
+      const groupHeader = document.createElement("div");
+      groupHeader.className = "metric-group-header";
+      groupHeader.textContent = "🌡️ Temperature Metrics (15 Available)";
+      metricsList.appendChild(groupHeader);
+
+      TEMPERATURE_METRICS.forEach(m => {
+        const lbl = document.createElement("label");
+        lbl.className = "dropdown-item-label";
+        const isChecked = prevChecked.has(m.name) ? "checked" : "";
+        lbl.innerHTML = `
+          <input type="checkbox" name="metric_item" value="${m.name}" ${isChecked}>
+          <span class="hazard-icon-box">${m.icon}</span>
+          <span>${m.name}</span>
+        `;
+        metricsList.appendChild(lbl);
+      });
+    }
+
+    metricsDropdown.classList.add("open");
+    updateMetricsUI();
+  }
+
+  checkRainfall.addEventListener("change", renderMetricsOptions);
+  checkTemperature.addEventListener("change", renderMetricsOptions);
+
+  document.getElementById("selectAllMetrics").addEventListener("click", () => {
+    metricsList.querySelectorAll("input[type=checkbox]").forEach(cb => cb.checked = true);
+    updateMetricsUI();
+  });
+  document.getElementById("clearMetrics").addEventListener("click", () => {
+    metricsList.querySelectorAll("input[type=checkbox]").forEach(cb => cb.checked = false);
+    updateMetricsUI();
+  });
+
+  const getSelectedMetrics = () => [...metricsList.querySelectorAll("input:checked")].map(cb => cb.value);
+
+  function updateMetricsUI() {
+    const sel = getSelectedMetrics();
+    const totalVisible = metricsList.querySelectorAll("input[type=checkbox]").length;
+
+    metricSelectedCount.textContent = `${sel.length} of ${totalVisible} selected`;
+    metricsBtnText.textContent = sel.length
+      ? `${sel.length} Metric(s) Selected (${sel.slice(0, 1).join("")}${sel.length > 1 ? '...' : ''})`
+      : `-- Choose Climate Metrics (${totalVisible} available) --`;
+
+    metricTagsContainer.innerHTML = "";
+    sel.forEach(mName => {
+      const tag = document.createElement("span");
+      tag.className = "selected-tag";
+      tag.innerHTML = `${mName} <span class="tag-remove-btn" data-val="${mName}">&times;</span>`;
+      metricTagsContainer.appendChild(tag);
+    });
+  }
+
+  metricsList.addEventListener("change", updateMetricsUI);
+
+  metricTagsContainer.addEventListener("click", e => {
+    if (e.target.classList.contains("tag-remove-btn")) {
+      const val = e.target.getAttribute("data-val");
+      const targetCb = metricsList.querySelector(`input[value="${val}"]`);
+      if (targetCb) {
+        targetCb.checked = false;
+        updateMetricsUI();
+      }
+    }
+  });
+
+  // Clear error styles on user interaction
+  document.querySelectorAll("input, select, textarea").forEach(el => {
+    el.addEventListener("input", () => el.classList.remove("field-error-highlight"));
+    el.addEventListener("change", () => el.classList.remove("field-error-highlight"));
+  });
+
+  // ====== FORM SUBMISSION & VALIDATION ======
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const btn = document.getElementById("submitBtn");
+    const f = form.elements;
+
+    // Reset error highlights
+    document.querySelectorAll(".field-error-highlight").forEach(el => el.classList.remove("field-error-highlight"));
+
+    const name = f.name.value.trim();
+    const email = f.email.value.trim();
+    const linkedin = f.linkedin ? f.linkedin.value.trim() : "";
+    const organization = f.organization.value.trim();
+    const roleVal = userRoleSelect.value === "Other" 
+      ? (otherRoleInput.value.trim() ? `Other: ${otherRoleInput.value.trim()}` : "") 
+      : userRoleSelect.value;
+    const location = f.location.value.trim();
+    const hazards = getSelectedHazards();
+    const metrics = getSelectedMetrics();
+    
+    const categories = [];
+    if (checkRainfall.checked) categories.push("Rainfall");
+    if (checkTemperature.checked) categories.push("Temperature");
+
+    const referralVal = referralSourceSelect.value === "Other"
+      ? (otherReferralInput.value.trim() ? `Other: ${otherReferralInput.value.trim()}` : "")
+      : referralSourceSelect.value;
+
+    // MANDATORY FIELD VALIDATION & POPUP WARNING
+    let missingField = null;
+    let missingMessage = "";
+
+    if (!name) {
+      missingField = f.name;
+      missingMessage = "Please enter <strong>Your Name</strong> in Section 1.";
+    } else if (!email || !/\S+@\S+\.\S+/.test(email)) {
+      missingField = f.email;
+      missingMessage = "Please provide a valid <strong>Email Address</strong> (e.g. name@organization.com).";
+    } else if (!organization) {
+      missingField = f.organization;
+      missingMessage = "Please enter your <strong>Organization / Institution</strong>.";
+    } else if (!userRoleSelect.value || (userRoleSelect.value === "Other" && !otherRoleInput.value.trim())) {
+      missingField = userRoleSelect.value === "Other" ? otherRoleInput : userRoleSelect;
+      missingMessage = "Please select your profile under <strong>'I am *'</strong>.";
+    } else if (hazards.length === 0) {
+      missingField = hazardsBtn;
+      missingMessage = "Please select at least one <strong>Climate Hazard</strong> in Section 2.";
+    } else if (!location) {
+      missingField = f.location;
+      missingMessage = "Please fill in your <strong>Interested Geographic Location</strong> in Section 4.";
+    } else if (!referralSourceSelect.value || (referralSourceSelect.value === "Other" && !otherReferralInput.value.trim())) {
+      missingField = referralSourceSelect.value === "Other" ? otherReferralInput : referralSourceSelect;
+      missingMessage = "Please select an option for <strong>'Where did you reach us from?'</strong> in Section 5.";
+    }
+
+    if (missingField) {
+      missingField.classList.add("field-error-highlight");
+      missingField.scrollIntoView({ behavior: "smooth", block: "center" });
+
+      showModal({
+        type: "warning",
+        title: "Required Field Missing",
+        message: missingMessage + "<br><span style='font-size:13px;color:#d92d20;'>Please fill this mandatory detail to continue.</span>",
+        btnText: "Fill This Field",
+        onClose: () => {
+          if (typeof missingField.focus === "function") missingField.focus();
+        }
+      });
+      return;
+    }
+
+    // Proceed to submit
+    btn.disabled = true;
+    btn.innerHTML = `<span>Submitting Request...</span>`;
+
+    const payload = new URLSearchParams({
+      name: name,
+      phone: f.phone.value.trim(),
+      email: email,
+      linkedin: linkedin,
+      organization: organization,
+      userRole: roleVal,
+      hazards: hazards.join(", "),
+      metricCategories: categories.join(", "),
+      metrics: metrics.join("; "),
+      location: location,
+      description: f.description.value.trim(),
+      referralSource: referralVal
+    });
+
+    try {
+      if (SCRIPT_URL && SCRIPT_URL !== "PASTE_YOUR_WEB_APP_URL_HERE") {
+        await fetch(SCRIPT_URL, {
+          method: "POST",
+          body: payload,
+          mode: "no-cors"
+        });
+      } else {
+        console.log("Submission payload:", Object.fromEntries(payload));
+        await new Promise(r => setTimeout(r, 600));
+      }
+
+      // PERSONALIZED THANK YOU POPUP WITH USER'S NAME (Clean, without summary box)
+      showModal({
+        type: "success",
+        title: `Thank You, ${name}! 🎉`,
+        message: `Thank you <strong>${name}</strong> for filling out the form.<br><br>Our team will shortly reach out to you with your requested <strong>ClimIntellio sample dataset</strong> and access instructions.`,
+        summaryHtml: null,
+        btnText: "Done",
+        onClose: () => {
+          form.reset();
+          cardRainfall.classList.remove("selected");
+          cardTemperature.classList.remove("selected");
+          metricDropdownContainer.classList.remove("visible");
+          otherRoleWrap.classList.remove("visible");
+          otherReferralWrap.classList.remove("visible");
+          updateHazardsUI();
+          updateMetricsUI();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      });
+
+    } catch (err) {
+      console.error(err);
+      showModal({
+        type: "warning",
+        title: "Submission Error",
+        message: "Something went wrong sending your request. Please try again or contact us directly at <a href='mailto:contact@climagroanalytics.com'>contact@climagroanalytics.com</a>.",
+        btnText: "Close"
+      });
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = `<span>Submit Request</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>`;
+    }
+  });
+
+  // Initial UI sync
+  updateHazardsUI();
+</script>
+</body>
+</html>
